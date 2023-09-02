@@ -25,7 +25,7 @@ You can open the directory of the file by clicking on the `Open cs2_video.txt di
 
 If you logged on more than one account with CS2 access, you could have more than one SteamID folder with config on your computer. In that case you will be asked to choose the ID.
 
-![multiple IDs gui](https://github.com/komeg1/cs2res_fix/blob/main/images/multipleid.jpg?raw=true)
+![multiple IDs gui](https://github.com/komeg1/cs2res_fix/blob/master/images/multipleid.png)
 
  If you don't know how to check it [check the following tutorial](https://help.steampowered.com/en/faqs/view/2816-BE67-5B69-0FEC).
 
