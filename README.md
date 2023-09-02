@@ -33,7 +33,10 @@ If you logged on more than one account with CS2 access, you could have more than
 # Additional information
 
 From my experience, the settings doesn't fix the problem for everyone. 
+
 Additionaly, when you enter the CS2 options in game, it will still say the wrong info (e.g. resolution 1366x768 instead of the one you set). It seems to be a visual bug.
+
+The app may contain some bugs. It was made quickly to fix the problem. If you encounter any big bug, use the issues tab.
 
 And finally - 
 I don't believe it's bannable. However, **use it at own risk**.
