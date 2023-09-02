@@ -1,0 +1,41 @@
+﻿<Window x:Class="cs2resfix.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:cs2resfix"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="300">
+    <Grid>
+
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="Info" Click="OpenInfoWindow"/>
+                
+            </Menu>
+
+        </DockPanel>
+        <Label Content="CS2 RESOLUTION FIX" HorizontalAlignment="Center" Margin="0,18,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift SemiBold"/>
+        <Button Content="Specify Steam location" HorizontalAlignment="Center" Margin="0,57,0,0" VerticalAlignment="Top" Click="OpenFileBrowser"/>
+
+        <TextBox IsEnabled="False" Name="CfgWidth" HorizontalAlignment="Left" Margin="10,105,0,0" TextWrapping="Wrap" Text="1920" VerticalAlignment="Top" Width="120"/>
+        <TextBox IsEnabled="False" Name="CfgHeight" HorizontalAlignment="Left" Margin="10,149,0,0" TextWrapping="Wrap" Text="1080" VerticalAlignment="Top" Width="120"/>
+        <TextBox IsEnabled="False" Name="CfgRefreshRate" HorizontalAlignment="Left" Margin="10,193,0,0" TextWrapping="Wrap" Text="75" VerticalAlignment="Top" Width="120"/>
+        <CheckBox IsEnabled="False" Name="CfgFullscreen" IsChecked="True" Content="Enable fullscreen" HorizontalAlignment="Left" Margin="10,217,0,0" VerticalAlignment="Top"/>
+        <Label Content="Width:" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top"/>
+        <Label Content="Height:" HorizontalAlignment="Left" Margin="10,123,0,0" VerticalAlignment="Top"/>
+        <Label Content="Refresh rate:" HorizontalAlignment="Left" Margin="10,167,0,0" VerticalAlignment="Top"/>
+        <Button Name="ApplyButton" IsEnabled="False" Content="Apply" HorizontalAlignment="Center" Margin="0,258,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.883,-0.95" Height="30" Width="74" Click="ApplyButton_Click"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="177,114,0,0" TextWrapping="Wrap" Text="Chosen SteamID:" VerticalAlignment="Top" Height="35"/>
+        <TextBlock Name="SteamID" HorizontalAlignment="Left" Margin="201,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <Button Name="OpenCs2DirButton" IsEnabled="False" Content="Open cs2__video.txt directory" HorizontalAlignment="Center" Margin="0,293,0,0" VerticalAlignment="Top" Click="OpenCS2VideoDirectory_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="184,335,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
+        <Hyperlink NavigateUri="https://github.com/komeg1/cs2res_fix" RequestNavigate="HyperlinkGithub_RequestNavigate">
+            github/komeg1
+        </Hyperlink>
+        </TextBlock>
+
+
+
+    </Grid>
+</Window>

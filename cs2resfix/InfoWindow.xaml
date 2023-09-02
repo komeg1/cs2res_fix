@@ -1,0 +1,29 @@
+﻿<Window x:Class="cs2resfix.InfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:cs2resfix"
+        mc:Ignorable="d"
+        Title="InfoWindow" Height="300" Width="330">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="281*"/>
+        </Grid.RowDefinitions>
+        <TextBlock HorizontalAlignment="Left" Margin="10,14,0,0" TextWrapping="Wrap" Text="This simple app was made for my own purpose to fix the problem with unavailable resolutions in CS2 beta.
+" VerticalAlignment="Top" Height="41" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,67,0,0" TextWrapping="Wrap" Text="Simply choose the Steam directory and set the values that are suitable for you. After clicking 'Apply' button, the values will be replaced in your cs2_video.txt config file." VerticalAlignment="Top" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,136,0,0" TextWrapping="Wrap" Text="In case of having multiple CS2 accounts, you will be asked to choose your SteamID. If you don't know where to find it follow the tutorial " VerticalAlignment="Top" Grid.Row="1"/>
+        <TextBlock Margin="160,168,0,73" Grid.Row="1" HorizontalAlignment="Left" Width="80">           
+        <Hyperlink NavigateUri="https://help.steampowered.com/en/faqs/view/2816-BE67-5B69-0FEC" RequestNavigate="Hyperlink_RequestNavigate">
+            here.
+        </Hyperlink>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="10,208,0,0" TextWrapping="Wrap" Text="I hope this application will help some people to fix the problem until Valve do it themselves." VerticalAlignment="Top" Grid.Row="1"/>
+
+
+
+
+    </Grid>
+</Window>
