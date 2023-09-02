@@ -11,7 +11,7 @@
         <DockPanel>
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="Info" Click="OpenInfoWindow"/>
-                
+
             </Menu>
 
         </DockPanel>
@@ -30,10 +30,18 @@
         <TextBlock Name="SteamID" HorizontalAlignment="Left" Margin="201,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
         <Button Name="OpenCs2DirButton" IsEnabled="False" Content="Open cs2__video.txt directory" HorizontalAlignment="Center" Margin="0,293,0,0" VerticalAlignment="Top" Click="OpenCS2VideoDirectory_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="184,335,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
+            
         <Hyperlink NavigateUri="https://github.com/komeg1/cs2res_fix" RequestNavigate="HyperlinkGithub_RequestNavigate">
             github/komeg1
         </Hyperlink>
         </TextBlock>
+        <ComboBox Name="AspectRatioComboBox"  IsEnabled="False" HorizontalAlignment="Left" Margin="167,190,0,0" VerticalAlignment="Top" Width="100" Height="23">
+            <ComboBoxItem >4:3</ComboBoxItem>
+            <ComboBoxItem IsSelected="True">16:9</ComboBoxItem>
+            <ComboBoxItem>16:10</ComboBoxItem>
+        </ComboBox>
+        <Label Content="Aspect ratio:" HorizontalAlignment="Left" Margin="167,167,0,0" VerticalAlignment="Top"/>
+
 
 
 

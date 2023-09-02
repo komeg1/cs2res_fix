@@ -30,6 +30,7 @@ namespace cs2resfix
         private const int BORDERLESS_LINE = 15;
         private const int REFRESH_RATE_LINE = 11;
         private const int REFRESH_RATE_DENOM_LINE = 12;
+        private const int ASPECT_RATIO_LINE = 53;
         
         
         private static List<DirectoryInfo> cs2Dirs = new List<DirectoryInfo>();
@@ -113,6 +114,7 @@ namespace cs2resfix
             CfgRefreshRate.IsEnabled = true;
             ApplyButton.IsEnabled = true;
             OpenCs2DirButton.IsEnabled = true;
+            AspectRatioComboBox.IsEnabled = true;
             
 
 
@@ -136,7 +138,26 @@ namespace cs2resfix
                 fileLines[FULLSCREEN_LINE] = "\t\"setting.fullscreen\"\t\t\"0\"";
                 fileLines[BORDERLESS_LINE] = "\t\"setting.nowindowborder\"\t\t\"1\"";
             }
-            
+
+            ComboBoxItem aspectRatio = (ComboBoxItem)AspectRatioComboBox.SelectedItem;
+            string chosenAspectRatio = aspectRatio.Content.ToString();
+
+            switch (chosenAspectRatio)
+            {
+
+                case "4:3":
+                    fileLines[ASPECT_RATIO_LINE] = "\t\"setting.aspectratiomode\"\t\t\"0\"";
+                    break;
+
+                case "16:9":
+                    fileLines[ASPECT_RATIO_LINE] = "\t\"setting.aspectratiomode\"\t\t\"1\"";
+                    break;
+
+                case "16:10":
+                    fileLines[ASPECT_RATIO_LINE] = "\t\"setting.aspectratiomode\"\t\t\"2\"";
+                    break;
+            }
+        
             try
             {
                 File.WriteAllLines(cs2cfg.FullName, fileLines);

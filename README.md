@@ -1,6 +1,6 @@
 # CS2 Beta resolution fix
 
-The simple app let you change your resolution and refresh rate to arbitrary values in CS2 Beta.
+The simple app let you change your resolution, aspect ratio and refresh rate to arbitrary values in CS2 Beta.
 It was made for my own purpose, due to the problem with unavailable resolutions and refresh rates in the options of the game.
 
 You can do the changes easily without the app. It was made for people that don't want to mess around with config files.
@@ -9,17 +9,22 @@ You can do the changes easily without the app. It was made for people that don't
 Download the current [release]() of the app.
 
 Simply find the Steam directory on your computer. Once it's done, the app will look for CS2 config file.
-If it finds the needed file, you will be able to input the resolution and refresh rate. 
+If it finds the needed file, you will be able to choose the aspect ratio and input the resolution and refresh rate.
 
 After clicking `Apply` button, the app will change the following lines of the `cs2_video.txt` file:
 ```txt
 "setting.defaultres"		"XYZ"
 "setting.defaultresheight"		"XYZ"
 "setting.refreshrate_numerator"		"XYZ"
-
+...
 "setting.fullscreen"		"XYZ"
 "setting.nowindowborder"    "XYZ"
+...
+"setting.aspectratiomode"		"XYZ"
 ```
+where `XYZ` is the value you input in the app.
+
+
 
 You can open the directory of the file by clicking on the `Open cs2_video.txt directory` button.
 
