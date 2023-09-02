@@ -4,9 +4,10 @@ The simple app let you change your resolution, aspect ratio and refresh rate to 
 It was made for my own purpose, due to the problem with unavailable resolutions and refresh rates in the options of the game.
 
 You can do the changes easily without the app. It was made for people that don't want to mess around with config files.
+If you are looking for fix without using the app, simply go to `Steam/userdata/{steamid}/730/local/cfg/cs2_video.txt` and change the lines listed below.
 
 # Instruction
-Download the current [release]() of the app.
+Download the current [release](https://github.com/komeg1/cs2res_fix/releases/tag/v1.0.0) of the app.
 
 Simply find the Steam directory on your computer. Once it's done, the app will look for CS2 config file.
 If it finds the needed file, you will be able to choose the aspect ratio and input the resolution and refresh rate.
@@ -37,7 +38,10 @@ If you logged on more than one account with CS2 access, you could have more than
 # Additional information
 
 From my experience, the settings doesn't fix the problem for everyone. 
+
 Additionaly, when you enter the CS2 options in game, it will still say the wrong info (e.g. resolution 1366x768 instead of the one you set). It seems to be a visual bug.
+
+The app may contain some bugs. It was made quickly to fix the problem. If you encounter any big bug, use the issues tab.
 
 And finally - 
 I don't believe it's bannable. However, **use it at own risk**.
