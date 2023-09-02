@@ -4,6 +4,7 @@ The simple app let you change your resolution and refresh rate to arbitrary valu
 It was made for my own purpose, due to the problem with unavailable resolutions and refresh rates in the options of the game.
 
 You can do the changes easily without the app. It was made for people that don't want to mess around with config files.
+If you are looking for fix without using the app, simply go to `Steam/userdata/{steamid}/730/local/cfg/cs2_video.txt` and change the lines listed below.
 
 # Instruction
 Download the current [release](https://github.com/komeg1/cs2res_fix/releases/tag/v1.0.0) of the app.
