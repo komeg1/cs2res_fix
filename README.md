@@ -6,7 +6,7 @@ It was made for my own purpose, due to the problem with unavailable resolutions 
 You can do the changes easily without the app. It was made for people that don't want to mess around with config files.
 
 # Instruction
-Download the current [release]() of the app.
+Download the current [release](https://github.com/komeg1/cs2res_fix/releases/tag/v1.0.0) of the app.
 
 Simply find the Steam directory on your computer. Once it's done, the app will look for CS2 config file.
 If it finds the needed file, you will be able to input the resolution and refresh rate. 
