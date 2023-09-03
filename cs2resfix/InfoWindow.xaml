@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cs2resfix"
         mc:Ignorable="d"
-        Title="InfoWindow" Height="320" Width="330">
+        Title="Info" Height="320" Width="330">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"/>

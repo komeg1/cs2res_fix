@@ -9,6 +9,8 @@ If you are looking for fix without using the app, simply go to `Steam/userdata/{
 # Instruction
 Download the current [release](https://github.com/komeg1/cs2res_fix/releases/tag/v1.0.0) of the app.
 
+![App's GUI](https://github.com/komeg1/cs2res_fix/blob/master/images/gui.png)
+
 Simply find the Steam directory on your computer. Once it's done, the app will look for CS2 config file.
 If it finds the needed file, you will be able to choose the aspect ratio and input the resolution and refresh rate.
 

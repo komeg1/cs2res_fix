@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cs2resfix"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="300">
+        Title="CS2 Beta resolution fix" Height="400" Width="300">
     <Grid>
 
         <DockPanel>
