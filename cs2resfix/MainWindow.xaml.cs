@@ -67,6 +67,7 @@ namespace cs2resfix
 
         private void FindCs2Data(DirectoryInfo steamDirectory)
         {
+            cs2Dirs.Clear();
             foreach (DirectoryInfo directory in steamDirectory.GetDirectories())
             {
                 if (Cs2DirExists(directory.FullName + "/730"))

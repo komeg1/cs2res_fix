@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cs2resfix"
         mc:Ignorable="d"
-        Title="ProfilePicker" Height="450" Width="300">
+        Title="ProfilePicker" Height="450" Width="300"
+        ResizeMode="NoResize">
     <Grid>
         <TextBox HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" BorderThickness="0" Text="There are multiple Steam profiles with CS2 access on your computer. Please select your SteamID.
                  If you don't know how to find it: " VerticalAlignment="Top" Width="280"/>

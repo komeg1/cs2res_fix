@@ -43,7 +43,7 @@ From my experience, the settings doesn't fix the problem for everyone.
 
 Additionaly, when you enter the CS2 options in game, it will still say the wrong info (e.g. resolution 1366x768 instead of the one you set). It seems to be a visual bug.
 
-The app may contain some bugs. It was made quickly to fix the problem. If you encounter any big bug, use the issues tab.
+The app may contain some bugs. It was made quickly to fix the problem. If you encounter any big bug, contact me on Discord - komeg1, [Steam](https://steamcommunity.com/profiles/76561198173528881/) or use the issues tab.
 
 And finally - 
 I don't believe it's bannable. However, **use it at own risk**.
