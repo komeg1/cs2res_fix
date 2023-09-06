@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cs2resfix"
         mc:Ignorable="d"
-        Title="CS2 Beta resolution fix" Height="400" Width="300"
+        Title="CS2 Beta resolution fix" Height="400" Width="550"
         ResizeMode="NoResize">
     <Grid>
 
@@ -17,32 +17,52 @@
 
         </DockPanel>
         <Label Content="CS2 RESOLUTION FIX" HorizontalAlignment="Center" Margin="0,18,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift SemiBold"/>
-        <Button Content="Specify Steam location" HorizontalAlignment="Center" Margin="0,57,0,0" VerticalAlignment="Top" Click="OpenFileBrowser"/>
-
-        <TextBox IsEnabled="False" Name="CfgWidth" HorizontalAlignment="Left" Margin="10,105,0,0" TextWrapping="Wrap" Text="1920" VerticalAlignment="Top" Width="120"/>
-        <TextBox IsEnabled="False" Name="CfgHeight" HorizontalAlignment="Left" Margin="10,149,0,0" TextWrapping="Wrap" Text="1080" VerticalAlignment="Top" Width="120"/>
-        <TextBox IsEnabled="False" Name="CfgRefreshRate" HorizontalAlignment="Left" Margin="10,193,0,0" TextWrapping="Wrap" Text="75" VerticalAlignment="Top" Width="120"/>
-        <CheckBox IsEnabled="False" Name="CfgFullscreen" IsChecked="True" Content="Enable fullscreen" HorizontalAlignment="Left" Margin="10,217,0,0" VerticalAlignment="Top"/>
-        <Label Content="Width:" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top"/>
-        <Label Content="Height:" HorizontalAlignment="Left" Margin="10,123,0,0" VerticalAlignment="Top"/>
-        <Label Content="Refresh rate:" HorizontalAlignment="Left" Margin="10,167,0,0" VerticalAlignment="Top"/>
-        <Button Name="ApplyButton" IsEnabled="False" Content="Apply" HorizontalAlignment="Center" Margin="0,258,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.883,-0.95" Height="30" Width="74" Click="ApplyButton_Click"/>
-        <TextBlock  HorizontalAlignment="Left" Margin="177,114,0,0" TextWrapping="Wrap" Text="Chosen SteamID:" VerticalAlignment="Top" Height="35"/>
+        <Button Content="Specify Steam location" HorizontalAlignment="Left" Margin="82,94,0,0" VerticalAlignment="Top" Click="OpenSteamFileBrowser"/>
+        <Button Content="Specify CS:GO location" HorizontalAlignment="Left" Margin="350,94,0,0" VerticalAlignment="Top" Click="OpenCsgoFileBrowser"/>
+        <TextBox IsEnabled="False" Name="CfgWidth" HorizontalAlignment="Left" Margin="10,142,0,0" TextWrapping="Wrap" Text="1920" VerticalAlignment="Top" Width="120"/>
+        <TextBox IsEnabled="False" Name="CfgHeight" HorizontalAlignment="Left" Margin="10,186,0,0" TextWrapping="Wrap" Text="1080" VerticalAlignment="Top" Width="120"/>
+        <TextBox IsEnabled="False" Name="CfgRefreshRate" HorizontalAlignment="Left" Margin="10,230,0,0" TextWrapping="Wrap" Text="75" VerticalAlignment="Top" Width="120"/>
+        <CheckBox IsEnabled="False" Name="CfgFullscreen" IsChecked="True" Content="Enable fullscreen" HorizontalAlignment="Left" Margin="10,254,0,0" VerticalAlignment="Top"/>
+        <Label Content="Width:" HorizontalAlignment="Left" Margin="10,116,0,0" VerticalAlignment="Top"/>
+        <Label Content="Height:" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top"/>
+        <Label Content="Refresh rate:" HorizontalAlignment="Left" Margin="10,204,0,0" VerticalAlignment="Top"/>
+        <Button Name="ApplyButton" IsEnabled="False" Content="Apply" HorizontalAlignment="Left" Margin="131,278,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.883,-0.95" Height="30" Width="74" Click="ApplyButton_Click"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="167,141,0,0" TextWrapping="Wrap" Text="Chosen SteamID:" VerticalAlignment="Top" Height="35"/>
         <TextBlock Name="SteamID" HorizontalAlignment="Left" Margin="201,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        <Button Name="OpenCs2DirButton" IsEnabled="False" Content="Open cs2__video.txt directory" HorizontalAlignment="Center" Margin="0,293,0,0" VerticalAlignment="Top" Click="OpenCS2VideoDirectory_Click"/>
-        <TextBlock HorizontalAlignment="Left" Margin="184,335,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
+        <Button Name="OpenCs2DirButton" IsEnabled="False" Content="Open cs2__video.txt directory" HorizontalAlignment="Left" Margin="91,313,0,0" VerticalAlignment="Top" Click="OpenCS2VideoDirectory_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="248,340,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
             
         <Hyperlink NavigateUri="https://github.com/komeg1/cs2res_fix" RequestNavigate="HyperlinkGithub_RequestNavigate">
             github/komeg1
         </Hyperlink>
         </TextBlock>
-        <ComboBox Name="AspectRatioComboBox"  IsEnabled="False" HorizontalAlignment="Left" Margin="167,190,0,0" VerticalAlignment="Top" Width="100" Height="23">
+        <ComboBox Name="AspectRatioComboBox"  IsEnabled="False" HorizontalAlignment="Left" Margin="167,227,0,0" VerticalAlignment="Top" Width="100" Height="23">
             <ComboBoxItem >4:3</ComboBoxItem>
             <ComboBoxItem IsSelected="True">16:9</ComboBoxItem>
             <ComboBoxItem>16:10</ComboBoxItem>
         </ComboBox>
-        <Label Content="Aspect ratio:" HorizontalAlignment="Left" Margin="167,167,0,0" VerticalAlignment="Top"/>
 
+        <Label Content="Aspect ratio:" HorizontalAlignment="Left" Margin="167,204,0,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="333,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top">   
+        <Hyperlink NavigateUri="https://twitter.com/JLOPEZOMG/status/1699112405433999444" RequestNavigate="HyperlinkGithub_RequestNavigate">
+            @JLOPEZOMG config settings
+        </Hyperlink>
+        </TextBlock>
+        <Label Content="Additional, internet settings based on&#xD;&#xA;" HorizontalAlignment="Left" Margin="308,52,0,0" VerticalAlignment="Top" Height="29"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="52" Width="256"><Run Text="&#x9;"/><Run Text="Modify resolution, aspect ratio "/><LineBreak/><Run Text="&#x9;"/><Run Language="pl-pl" Text="&#x9;"/><Run Text="and refresh rate "/></TextBlock>
+        <CheckBox IsEnabled="false" Name="interpRatio" Content="cl__interp__ratio 1" HorizontalAlignment="Left" Margin="350,139,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
+        <CheckBox IsEnabled="false" Name="updateRate" Content="cl__updaterate__128" HorizontalAlignment="Left" Margin="350,159,0,0" VerticalAlignment="Top"/>
+
+        <ComboBox IsEnabled="false" Name="interp" HorizontalAlignment="Left" Margin="370,201,0,0" VerticalAlignment="Top" Width="124">
+            <ComboBoxItem>cl_interp 0.046875 (default after 06.09.2023)</ComboBoxItem>
+            <ComboBoxItem IsSelected="True">cl__interp 0.015625 (stable/wired internet)</ComboBoxItem>
+            <ComboBoxItem >cl_interp 0.03125 (wireless/ping above 60)</ComboBoxItem>
+        </ComboBox>
+        <Label Content="Interpolation setting:"  HorizontalAlignment="Left" Margin="346,175,0,0" VerticalAlignment="Top"/>
+        <Button IsEnabled="False" Name ="ModifyAutoexecButton" Content="Modify autoexec" HorizontalAlignment="Left" Margin="363,273,0,0" VerticalAlignment="Top" Height="30" Width="99" Click="ModifyAutoexec_Click"/>
+        <Button IsEnabled="False" Name="OpenAutoexecDirectoryButton" Content="Open autoexec.cfg directory" HorizontalAlignment="Left" Margin="333,313,0,0" VerticalAlignment="Top" Click="OpenAutoexecDirectory_Click"/>
+        <CheckBox IsEnabled="false" IsChecked="True" Name="allowInterp" Content="" HorizontalAlignment="Left" Margin="350,206,0,0" VerticalAlignment="Top" Click="AllowInterp"/>
+        <TextBlock HorizontalAlignment="Left" Margin="349,118,0,0" TextWrapping="Wrap" Text="!!BACKUP YOUR AUTOEXEC.CFG!!" VerticalAlignment="Top" Foreground="Red" FontWeight="Bold" FontSize="8"/>
 
 
 

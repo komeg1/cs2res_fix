@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cs2resfix"
         mc:Ignorable="d"
-        Title="Info" Height="320" Width="330"
+        Title="Info" Height="450" Width="330"
         ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
@@ -23,6 +23,16 @@
         </TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="10,200,0,0" TextWrapping="Wrap" Text="I hope this application will help some people to fix the problem until Valve do it themselves." VerticalAlignment="Top" Grid.Row="1"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,242,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"><Run Language="pl-pl" Text="USE IT AT OWN RISK"/><LineBreak/><Run Language="pl-pl"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="10,271,0,0" Grid.Row="1" TextWrapping="Wrap" Text="I have decided to add a few options that should fix some stuttering/feeling of weird enemy picking related to interpolation. The settings are based on a tweet with" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,318,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Row="1" RenderTransformOrigin="0.548,0.474">   
+        <Hyperlink NavigateUri="https://twitter.com/JLOPEZOMG/status/1699112405433999444" RequestNavigate="HyperlinkTweet_RequestNavigate">
+            @JLOPEZOMG config settings
+        </Hyperlink>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="174,318,0,0" Grid.Row="1" TextWrapping="Wrap" Text="which helped me a lot" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,339,0,0" Grid.Row="1" TextWrapping="Wrap" Text="The new options will create/modify your autoexec.cfg with the proper settings. PLEASE BACKUP YOUR AUTOCONFIG." VerticalAlignment="Top"/>
+
+
 
 
 
