@@ -8,12 +8,12 @@ If you are looking for fix without using the app, simply go to `Steam/userdata/{
 
 ## Additional interpolation settings
 
-With this commit, I decided to add the interpolation settings to the app. The settings are based on [@JLOPEZOMG config tweet](https://twitter.com/JLOPEZOMG/status/1699112405433999444) and should help you if you struggle with lags and choppy gameplay feeling.
+With the v1.0.3 version, I decided to add the interpolation settings to the app. The settings are based on [@JLOPEZOMG config tweet](https://twitter.com/JLOPEZOMG/status/1699112405433999444) and should help you if you struggle with lags and choppy gameplay feeling.
 
 
 
 # Instruction
-Download the current [release](https://github.com/komeg1/cs2res_fix/releases/tag/v1.0.0) of the app.
+Download the current [release](https://github.com/komeg1/cs2res_fix/releases/tag/v1.0.3) of the app.
 
 ![App's GUI](https://github.com/komeg1/cs2res_fix/blob/master/images/gui.png)
 
