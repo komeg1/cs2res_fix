@@ -16,8 +16,9 @@ As of 13.09.2023 CS2 update, Valve decided to delete the interpolations commands
 
 
 
+
 # Instruction
-Download the current [release](https://github.com/komeg1/cs2res_fix/releases/tag/v1.0.0) of the app.
+Download the current [release](https://github.com/komeg1/cs2res_fix/releases/tag/v1.0.3) of the app.
 
 ![App's GUI](https://github.com/komeg1/cs2res_fix/blob/master/images/gui.png)
 
