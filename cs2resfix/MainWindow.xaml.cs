@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
+using System.Configuration;
 
 namespace cs2resfix
 {
@@ -42,8 +43,17 @@ namespace cs2resfix
         public MainWindow()
         {
             InitializeComponent();
+            ApplyConfigSettings();
         }
 
+        private void ApplyConfigSettings()
+        {
+            //ENABLE INTERPOLATION SETTINGS
+            string val = ConfigurationManager.AppSettings["enableInterpSettings"];
+            if (val == "false")
+                csgoLocationButton.IsEnabled = false; 
+
+        }
         private void OpenInfoWindow(object sender, RoutedEventArgs e)
         {
             InfoWindow infoWindow = new InfoWindow();

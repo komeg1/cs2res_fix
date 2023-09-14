@@ -18,7 +18,7 @@
         </DockPanel>
         <Label Content="CS2 RESOLUTION FIX" HorizontalAlignment="Center" Margin="0,18,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift SemiBold"/>
         <Button Content="Specify Steam location" HorizontalAlignment="Left" Margin="82,94,0,0" VerticalAlignment="Top" Click="OpenSteamFileBrowser"/>
-        <Button Content="Specify CS:GO location" HorizontalAlignment="Left" Margin="350,94,0,0" VerticalAlignment="Top" Click="OpenCsgoFileBrowser"/>
+        <Button Name="csgoLocationButton" Content="Specify CS:GO location" HorizontalAlignment="Left" Margin="350,94,0,0" VerticalAlignment="Top" Click="OpenCsgoFileBrowser"/>
         <TextBox IsEnabled="False" Name="CfgWidth" HorizontalAlignment="Left" Margin="10,142,0,0" TextWrapping="Wrap" Text="1920" VerticalAlignment="Top" Width="120"/>
         <TextBox IsEnabled="False" Name="CfgHeight" HorizontalAlignment="Left" Margin="10,186,0,0" TextWrapping="Wrap" Text="1080" VerticalAlignment="Top" Width="120"/>
         <TextBox IsEnabled="False" Name="CfgRefreshRate" HorizontalAlignment="Left" Margin="10,230,0,0" TextWrapping="Wrap" Text="75" VerticalAlignment="Top" Width="120"/>

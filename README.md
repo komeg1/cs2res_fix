@@ -7,8 +7,12 @@ You can do the changes easily without the app. It was made for people that don't
 If you are looking for fix without using the app, simply go to `Steam/userdata/{steamid}/730/local/cfg/cs2_video.txt` and change the lines listed below.
 
 ## Additional interpolation settings
+**(OUTDATED SINCE 13.09.2023 UPDATE)**
 
-With this commit, I decided to add the interpolation settings to the app. The settings are based on [@JLOPEZOMG config tweet](https://twitter.com/JLOPEZOMG/status/1699112405433999444) and should help you if you struggle with lags and choppy gameplay feeling.
+As of 13.09.2023 CS2 update, Valve decided to delete the interpolations commands from the game. I decied to lock the option in the app, in case they decide to add them back. If you want to use them, change the `enableInterpSettings` value in the `cs2resfix.dll.config` file to `true`.
+
+
+~~With the 41b0fdf9ae860d2d591fc0c8ec2d42f6dd73faa0 commit, I decided to add the interpolation settings to the app. The settings are based on [@JLOPEZOMG config tweet](https://twitter.com/JLOPEZOMG/status/1699112405433999444) and should help you if you struggle with lags and choppy gameplay feeling.~~
 
 
 
