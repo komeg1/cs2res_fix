@@ -17,6 +17,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
 using System.Configuration;
+using System.Security.Policy;
 
 namespace cs2resfix
 {
@@ -40,6 +41,12 @@ namespace cs2resfix
 
 
         public List<DirectoryInfo> Cs2Dirs { get { return cs2Dirs; } }
+        private string _universalCfgPath;
+        public string universalCfgPath
+        {
+            get { return _universalCfgPath; }
+            set { _universalCfgPath = value; }
+        }
         public MainWindow()
         {
             InitializeComponent();
@@ -49,9 +56,65 @@ namespace cs2resfix
         private void ApplyConfigSettings()
         {
             //ENABLE INTERPOLATION SETTINGS
-            string val = ConfigurationManager.AppSettings["enableInterpSettings"];
-            if (val == "false")
-                csgoLocationButton.IsEnabled = false; 
+            string enableInterpCfgVal = ConfigurationManager.AppSettings["enableInterpSettings"];
+            string enableUniversalCfgPath = ConfigurationManager.AppSettings["enableUniversalCfgPath"];
+            if (enableInterpCfgVal == "false")
+                csgoLocationButton.IsEnabled = false;
+            if (enableUniversalCfgPath == "true")
+            {
+                csgoLocationButton.IsEnabled = false;
+                steamLocationButton.IsEnabled = false;
+                GetUniversalCfgPath();
+            }
+
+
+            
+
+        }
+        private void GetUniversalCfgPath()
+        {
+            if (Environment.GetEnvironmentVariable("USRLOCALCSGO") == null)
+            {
+                System.Windows.MessageBox.Show("Universal CSGO environment variable not found. Please turn off the option in config.");
+                //exit app
+                this.Close();
+                return;
+            }
+            Console.WriteLine(Environment.GetEnvironmentVariable("USRLOCALCSGO"));
+            universalCfgPath = Environment.GetEnvironmentVariable("USRLOCALCSGO");
+            //check if universal cfg path exists
+            if (!new DirectoryInfo(universalCfgPath).Exists)
+            {
+                MessageBoxResult dr = System.Windows.MessageBox.Show($"Universal CSGO config path hasn't been found in spite of having environment variable set.\n\n Your USRLOCALCSGO environment variable refers to: \n{universalCfgPath} \n\n Click 'OK' to create the directories","cs2resfix",MessageBoxButton.OKCancel, MessageBoxImage.Warning);
+                if (dr == MessageBoxResult.OK)
+                {
+                    try
+                    {
+                        if (!Directory.Exists(universalCfgPath))
+                            Directory.CreateDirectory(universalCfgPath);
+                        if (!Directory.Exists(universalCfgPath + "/cfg"))
+                            Directory.CreateDirectory(universalCfgPath + "/cfg");
+                    }
+                    catch
+                    {
+                        System.Windows.MessageBox.Show("There was a problem with creating the directories");
+                        this.Close();
+                        return;
+                    }
+                }
+                else
+                {
+                    this.Close();
+                    return;
+                }
+            }
+
+            //enable appropiate fields
+            steamDirectory = new DirectoryInfo(universalCfgPath + "/cfg/");
+            csgoDirectory = new DirectoryInfo(universalCfgPath + "/cfg/");
+            universalCfgEnabledText.Visibility = Visibility.Visible;
+            AccessCs2Cfg("None");
+            AccessAutoexecSettings(true);
 
         }
         private void OpenInfoWindow(object sender, RoutedEventArgs e)
@@ -107,16 +170,52 @@ namespace cs2resfix
             return false;
         }
 
-        public void AccessCs2Cfg(string steamId)
+        public void AccessCs2Cfg(string steamId="None")
         {
-            steamDirectory = new DirectoryInfo(steamDirectory.FullName + $"/{steamId}/730/local/cfg/");
-            FileInfo cs2cfg = new FileInfo(steamDirectory.FullName + "cs2_video.txt");
-            Console.Write(cs2cfg.FullName);
-            if (!cs2cfg.Exists)
+            if (!steamId.Equals("None"))
             {
-                System.Windows.MessageBox.Show("cs2_video.txt not found");
-                this.Close();
-                return;
+                steamDirectory = new DirectoryInfo(steamDirectory.FullName + $"/{steamId}/730/local/cfg/");
+                FileInfo cs2cfg = new FileInfo(steamDirectory.FullName + "cs2_video.txt");
+                Console.Write(cs2cfg.FullName);
+                if (!cs2cfg.Exists)
+                {
+
+                    MessageBoxResult dr = System.Windows.MessageBox.Show("cs2_video.txt not found \n\n Run CS2 to create the file", "cs2resfix", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    this.Close();
+                    return;
+
+                }
+            }
+            else
+            {
+                steamDirectory = new DirectoryInfo(universalCfgPath + "/cfg/");
+                FileInfo cs2cfg = new FileInfo(steamDirectory.FullName + "cs2_video.txt");
+                Console.Write(cs2cfg.FullName);
+                if (!cs2cfg.Exists)
+                {
+                    MessageBoxResult dr = System.Windows.MessageBox.Show("cs2_video.txt not found \n\n Click 'OK' to create the file", "cs2resfix", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
+                    if (dr == MessageBoxResult.OK)
+                    {
+                        try
+                        {
+                            if (!Directory.Exists(steamDirectory.FullName))
+                                Directory.CreateDirectory(steamDirectory.FullName);
+                            using (File.Create(cs2cfg.FullName)) { }
+                        }
+                        catch
+                        {
+                            System.Windows.MessageBox.Show("There was a problem with creating the file");
+                            this.Close();
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        this.Close();
+                        return;
+                    }
+                }
+                csgoLocationButton.IsEnabled = false;
             }
 
 
@@ -225,8 +324,12 @@ namespace cs2resfix
             AccessAutoexecSettings();
         }
 
-        private void AccessAutoexecSettings()
+        private void AccessAutoexecSettings(bool isUniversalCfgenabled = false)
         {
+            if (isUniversalCfgenabled)
+            {
+                csgoLocationButton.IsEnabled = false;
+            }
             interpRatio.IsEnabled = true;
             updateRate.IsEnabled = true;
             allowInterp.IsEnabled = true;
@@ -241,13 +344,21 @@ namespace cs2resfix
         }
         private void ModifyAutoexecData()
         {
-            FileInfo autoexecInfo = new FileInfo(csgoDirectory.FullName + "/autoexec.cfg");
+            FileInfo autoexecInfo;
+            if (universalCfgPath == null)
+            {
+                autoexecInfo = new FileInfo(csgoDirectory.FullName + "/autoexec.cfg");
+            }
+            else
+            {
+                autoexecInfo = new FileInfo(universalCfgPath + "/cfg/autoexec.cfg");
+            }
             if (!autoexecInfo.Exists)
                 CreateAutoexec(autoexecInfo);
 
             DeleteCurrentInterpolationConfigLines(autoexecInfo);
 
-            string configModifier = "";
+            string configModifier = "//THIS PART HAS BEEN ADDED BY cs2resfix - github.com/komeg1/cs2resfix";
             if (interpRatio.IsChecked == true)
                 configModifier+= "\ncl_interp_ratio 1";
             if (updateRate.IsChecked == true)
@@ -269,9 +380,11 @@ namespace cs2resfix
                     configModifier += "\ncl_interp 0.03125";
                 }
             }
+            configModifier += "\n//END OF cs2resfix PART";
             try
             {
                 File.AppendAllText(autoexecInfo.FullName, configModifier);
+                System.Windows.MessageBox.Show("Autoexec changed succesfully.","cs2resfix",MessageBoxButton.OK);
             }
             catch
             {
