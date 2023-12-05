@@ -30,7 +30,7 @@ For more details on the usage and benefits of this feature, refer to the provide
 
 
 # Instruction
-Download the current [release](https://github.com/komeg1/cs2res_fix/releases/tag/v1.0.5) of the app.
+Download the current [release](https://github.com/komeg1/cs2res_fix/releases/tag/v1.0.5.1) of the app.
 
 ![App's GUI](https://github.com/komeg1/cs2res_fix/blob/master/images/gui.png)
 
