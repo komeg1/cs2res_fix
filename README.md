@@ -11,6 +11,18 @@ If you are looking for fix without using the app, simply go to `Steam/userdata/{
 
 As of 13.09.2023 CS2 update, Valve decided to delete the interpolations commands from the game. I decied to lock the option in the app, in case they decide to add them back. If you want to use them, change the `enableInterpSettings` value in the `cs2resfix.dll.config` file to `true`.
 
+## Universal config path
+I have addressed Issue #2 by introducing a new configuration option, `enableUniversalCfgPath,` in the `cs2resfix.dll.config` file. This option is designed for users who rely on the `USRLOCALCSGO` environment variable. More information about the variable can be found [here](https://blog.counter-strike.net/index.php/2015/12/13325/).
+
+### How it Works:
+- When `enableUniversalCfgPath` is set to `true`, the application will utilize the `USRLOCALCSGO` environment variable to locate the `cs2_video.txt` and `autoexec.cfg` files.
+
+### Note:
+- Ensure that the `USRLOCALCSGO` environment variable is correctly set on your system.
+- Modification of `cs2_video.txt' and 'autoexec.cfg` will occur at the location specified by the `USRLOCALCSGO/cfg/` environment variable.
+- In case of missing environment/directories/files you will be informed with proper pop-up.
+
+For more details on the usage and benefits of this feature, refer to the provided link and #2 issue.
 
 ~~With the 41b0fdf9ae860d2d591fc0c8ec2d42f6dd73faa0 commit, I decided to add the interpolation settings to the app. The settings are based on [@JLOPEZOMG config tweet](https://twitter.com/JLOPEZOMG/status/1699112405433999444) and should help you if you struggle with lags and choppy gameplay feeling.~~
 
@@ -18,7 +30,7 @@ As of 13.09.2023 CS2 update, Valve decided to delete the interpolations commands
 
 
 # Instruction
-Download the current [release](https://github.com/komeg1/cs2res_fix/releases/tag/v1.0.4) of the app.
+Download the current [release](https://github.com/komeg1/cs2res_fix/releases/tag/v1.0.5.1) of the app.
 
 ![App's GUI](https://github.com/komeg1/cs2res_fix/blob/master/images/gui.png)
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cs2resfix"
         mc:Ignorable="d"
-        Title="CS2 Beta resolution fix" Height="400" Width="550"
+        Title="CS2 Beta resolution fix" Height="450" Width="550"
         ResizeMode="NoResize">
     <Grid>
 
@@ -16,21 +16,22 @@
             </Menu>
 
         </DockPanel>
-        <Label Content="CS2 RESOLUTION FIX" HorizontalAlignment="Center" Margin="0,18,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift SemiBold"/>
-        <Button Content="Specify Steam location" HorizontalAlignment="Left" Margin="82,94,0,0" VerticalAlignment="Top" Click="OpenSteamFileBrowser"/>
-        <Button Name="csgoLocationButton" Content="Specify CS:GO location" HorizontalAlignment="Left" Margin="350,94,0,0" VerticalAlignment="Top" Click="OpenCsgoFileBrowser"/>
+        <Label Content="CS2 RESOLUTION FIX" HorizontalAlignment="Center" Margin="0,21,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift SemiBold"/>
+        <Button Name="SteamLocationButton" Content="Specify Steam location" HorizontalAlignment="Left" Margin="82,94,0,0" VerticalAlignment="Top" Click="OpenSteamFileBrowser"/>
+        <Button Name="CsgoLocationButton" Content="Specify CS:GO location" HorizontalAlignment="Left" Margin="350,94,0,0" VerticalAlignment="Top" Click="OpenCsgoFileBrowser"/>
         <TextBox IsEnabled="False" Name="CfgWidth" HorizontalAlignment="Left" Margin="10,142,0,0" TextWrapping="Wrap" Text="1920" VerticalAlignment="Top" Width="120"/>
         <TextBox IsEnabled="False" Name="CfgHeight" HorizontalAlignment="Left" Margin="10,186,0,0" TextWrapping="Wrap" Text="1080" VerticalAlignment="Top" Width="120"/>
         <TextBox IsEnabled="False" Name="CfgRefreshRate" HorizontalAlignment="Left" Margin="10,230,0,0" TextWrapping="Wrap" Text="75" VerticalAlignment="Top" Width="120"/>
         <CheckBox IsEnabled="False" Name="CfgFullscreen" IsChecked="True" Content="Enable fullscreen" HorizontalAlignment="Left" Margin="10,254,0,0" VerticalAlignment="Top"/>
+        <Label Visibility="Collapsed" Name="universalCfgEnabledText" Content="Universal config path enabled" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Background="#FF06FF15" Height="30" Width="178" Margin="192,351,0,0"/>
         <Label Content="Width:" HorizontalAlignment="Left" Margin="10,116,0,0" VerticalAlignment="Top"/>
         <Label Content="Height:" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top"/>
         <Label Content="Refresh rate:" HorizontalAlignment="Left" Margin="10,204,0,0" VerticalAlignment="Top"/>
         <Button Name="ApplyButton" IsEnabled="False" Content="Apply" HorizontalAlignment="Left" Margin="131,278,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.883,-0.95" Height="30" Width="74" Click="ApplyButton_Click"/>
         <TextBlock  HorizontalAlignment="Left" Margin="167,141,0,0" TextWrapping="Wrap" Text="Chosen SteamID:" VerticalAlignment="Top" Height="35"/>
-        <TextBlock Name="SteamID" HorizontalAlignment="Left" Margin="201,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <TextBlock Name="SteamID" HorizontalAlignment="Left" Margin="262,139,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
         <Button Name="OpenCs2DirButton" IsEnabled="False" Content="Open cs2__video.txt directory" HorizontalAlignment="Left" Margin="91,313,0,0" VerticalAlignment="Top" Click="OpenCS2VideoDirectory_Click"/>
-        <TextBlock HorizontalAlignment="Left" Margin="248,340,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
+        <TextBlock HorizontalAlignment="Center" Margin="0,386,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
             
         <Hyperlink NavigateUri="https://github.com/komeg1/cs2res_fix" RequestNavigate="HyperlinkGithub_RequestNavigate">
             github/komeg1
@@ -61,7 +62,7 @@
         <Label Content="Interpolation setting:"  HorizontalAlignment="Left" Margin="346,175,0,0" VerticalAlignment="Top"/>
         <Button IsEnabled="False" Name ="ModifyAutoexecButton" Content="Modify autoexec" HorizontalAlignment="Left" Margin="363,273,0,0" VerticalAlignment="Top" Height="30" Width="99" Click="ModifyAutoexec_Click"/>
         <Button IsEnabled="False" Name="OpenAutoexecDirectoryButton" Content="Open autoexec.cfg directory" HorizontalAlignment="Left" Margin="333,313,0,0" VerticalAlignment="Top" Click="OpenAutoexecDirectory_Click"/>
-        <CheckBox IsEnabled="false" IsChecked="True" Name="allowInterp" Content="" HorizontalAlignment="Left" Margin="350,206,0,0" VerticalAlignment="Top" Click="AllowInterp"/>
+        <CheckBox IsEnabled="false" IsChecked="False" Name="allowInterp" Content="" HorizontalAlignment="Left" Margin="350,206,0,0" VerticalAlignment="Top" Click="AllowInterp"/>
         <TextBlock HorizontalAlignment="Left" Margin="349,118,0,0" TextWrapping="Wrap" Text="!!BACKUP YOUR AUTOEXEC.CFG!!" VerticalAlignment="Top" Foreground="Red" FontWeight="Bold" FontSize="8"/>
 
 
