@@ -17,8 +17,8 @@
 
         </DockPanel>
         <Label Content="CS2 RESOLUTION FIX" HorizontalAlignment="Center" Margin="0,21,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift SemiBold"/>
-        <Button Name="steamLocationButton" Content="Specify Steam location" HorizontalAlignment="Left" Margin="82,94,0,0" VerticalAlignment="Top" Click="OpenSteamFileBrowser"/>
-        <Button Name="csgoLocationButton" Content="Specify CS:GO location" HorizontalAlignment="Left" Margin="350,94,0,0" VerticalAlignment="Top" Click="OpenCsgoFileBrowser"/>
+        <Button Name="SteamLocationButton" Content="Specify Steam location" HorizontalAlignment="Left" Margin="82,94,0,0" VerticalAlignment="Top" Click="OpenSteamFileBrowser"/>
+        <Button Name="CsgoLocationButton" Content="Specify CS:GO location" HorizontalAlignment="Left" Margin="350,94,0,0" VerticalAlignment="Top" Click="OpenCsgoFileBrowser"/>
         <TextBox IsEnabled="False" Name="CfgWidth" HorizontalAlignment="Left" Margin="10,142,0,0" TextWrapping="Wrap" Text="1920" VerticalAlignment="Top" Width="120"/>
         <TextBox IsEnabled="False" Name="CfgHeight" HorizontalAlignment="Left" Margin="10,186,0,0" TextWrapping="Wrap" Text="1080" VerticalAlignment="Top" Width="120"/>
         <TextBox IsEnabled="False" Name="CfgRefreshRate" HorizontalAlignment="Left" Margin="10,230,0,0" TextWrapping="Wrap" Text="75" VerticalAlignment="Top" Width="120"/>
@@ -62,7 +62,7 @@
         <Label Content="Interpolation setting:"  HorizontalAlignment="Left" Margin="346,175,0,0" VerticalAlignment="Top"/>
         <Button IsEnabled="False" Name ="ModifyAutoexecButton" Content="Modify autoexec" HorizontalAlignment="Left" Margin="363,273,0,0" VerticalAlignment="Top" Height="30" Width="99" Click="ModifyAutoexec_Click"/>
         <Button IsEnabled="False" Name="OpenAutoexecDirectoryButton" Content="Open autoexec.cfg directory" HorizontalAlignment="Left" Margin="333,313,0,0" VerticalAlignment="Top" Click="OpenAutoexecDirectory_Click"/>
-        <CheckBox IsEnabled="false" IsChecked="True" Name="allowInterp" Content="" HorizontalAlignment="Left" Margin="350,206,0,0" VerticalAlignment="Top" Click="AllowInterp"/>
+        <CheckBox IsEnabled="false" IsChecked="False" Name="allowInterp" Content="" HorizontalAlignment="Left" Margin="350,206,0,0" VerticalAlignment="Top" Click="AllowInterp"/>
         <TextBlock HorizontalAlignment="Left" Margin="349,118,0,0" TextWrapping="Wrap" Text="!!BACKUP YOUR AUTOEXEC.CFG!!" VerticalAlignment="Top" Foreground="Red" FontWeight="Bold" FontSize="8"/>
 
 

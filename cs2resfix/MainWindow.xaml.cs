@@ -26,13 +26,13 @@ namespace cs2resfix
     /// </summary>
     public partial class MainWindow : Window
     {
-        private const int WIDTH_LINE = 9;
-        private const int HEIGHT_LINE = 10;
-        private const int FULLSCREEN_LINE = 13;
-        private const int BORDERLESS_LINE = 15;
-        private const int REFRESH_RATE_LINE = 11;
-        private const int REFRESH_RATE_DENOM_LINE = 12;
-        private const int ASPECT_RATIO_LINE = 53;
+        private int WIDTH_LINE = 9;
+        private int HEIGHT_LINE = 10;
+        private int FULLSCREEN_LINE = 13;
+        private int BORDERLESS_LINE = 15;
+        private int REFRESH_RATE_LINE = 11;   
+        private int REFRESH_RATE_DENOM_LINE = 12;
+        private int ASPECT_RATIO_LINE = 53;
         
         
         private static List<DirectoryInfo> cs2Dirs = new List<DirectoryInfo>();
@@ -47,6 +47,8 @@ namespace cs2resfix
             get { return _universalCfgPath; }
             set { _universalCfgPath = value; }
         }
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -59,11 +61,11 @@ namespace cs2resfix
             string enableInterpCfgVal = ConfigurationManager.AppSettings["enableInterpSettings"];
             string enableUniversalCfgPath = ConfigurationManager.AppSettings["enableUniversalCfgPath"];
             if (enableInterpCfgVal == "false")
-                csgoLocationButton.IsEnabled = false;
+                CsgoLocationButton.IsEnabled = false;
             if (enableUniversalCfgPath == "true")
             {
-                csgoLocationButton.IsEnabled = false;
-                steamLocationButton.IsEnabled = false;
+                CsgoLocationButton.IsEnabled = false;
+                SteamLocationButton.IsEnabled = false;
                 GetUniversalCfgPath();
             }
 
@@ -179,7 +181,6 @@ namespace cs2resfix
                 Console.Write(cs2cfg.FullName);
                 if (!cs2cfg.Exists)
                 {
-
                     MessageBoxResult dr = System.Windows.MessageBox.Show("cs2_video.txt not found \n\n Run CS2 to create the file", "cs2resfix", MessageBoxButton.OK, MessageBoxImage.Warning);
                     this.Close();
                     return;
@@ -215,9 +216,10 @@ namespace cs2resfix
                         return;
                     }
                 }
-                csgoLocationButton.IsEnabled = false;
+                CsgoLocationButton.IsEnabled = false;
             }
 
+            FillUIWithCfgData();
 
             CfgFullscreen.IsEnabled = true;
             CfgWidth.IsEnabled = true;
@@ -230,9 +232,69 @@ namespace cs2resfix
 
 
         }
+        private void FillUIWithCfgData()
+        {
+            //find values in cs2_video.txt and fill the fields in the app's ui
+
+            string[] fileLines = File.ReadAllLines(steamDirectory.FullName + "cs2_video.txt");
+            for (int i = 0; i < fileLines.Length; i++)
+            {
+                if (fileLines[i].Contains("setting.defaultres\""))
+                    CfgWidth.Text = fileLines[i].Split('"')[3];
+                if (fileLines[i].Contains("setting.defaultresheight"))
+                    CfgHeight.Text = fileLines[i].Split('"')[3];
+                if (fileLines[i].Contains("setting.fullscreen"))
+                {
+                    if (fileLines[i].Split('"')[3].Equals("1"))
+                        CfgFullscreen.IsChecked = true;
+                    else
+                        CfgFullscreen.IsChecked = false;
+                }
+                if (fileLines[i].Contains("setting.refreshrate_numerator"))
+                    CfgRefreshRate.Text = fileLines[i].Split('"')[3];
+                if (fileLines[i].Contains("setting.aspectratiomode"))
+                {
+                    switch (fileLines[i].Split('"')[3])
+                    {
+                        case "0":
+                            AspectRatioComboBox.SelectedIndex = 0;
+                            break;
+                        case "1":
+                            AspectRatioComboBox.SelectedIndex = 1;
+                            break;
+                        case "2":
+                            AspectRatioComboBox.SelectedIndex = 2;
+                            break;
+                    }
+                }
+            }
+        }
+        private void FindCs2CfgLinesIndex(FileInfo cs2cfg)
+        {
+            // search through the file for the lines we need to modify
+            string[] fileLines = File.ReadAllLines(cs2cfg.FullName);
+            for (int i = 0; i < fileLines.Length; i++)
+            {
+                if (fileLines[i].Contains("setting.defaultres\""))
+                    WIDTH_LINE = i;
+                if (fileLines[i].Contains("setting.defaultresheight"))
+                    HEIGHT_LINE = i;
+                if (fileLines[i].Contains("setting.fullscreen"))
+                    FULLSCREEN_LINE = i;
+                if (fileLines[i].Contains("setting.nowindowborder"))
+                    BORDERLESS_LINE = i;
+                if (fileLines[i].Contains("setting.refreshrate_numerator"))
+                    REFRESH_RATE_LINE = i;
+                if (fileLines[i].Contains("setting.refreshrate_denominator"))
+                    REFRESH_RATE_DENOM_LINE = i;
+                if (fileLines[i].Contains("setting.aspectratiomode"))
+                    ASPECT_RATIO_LINE = i;
+            }
+        }
 
         private void ModifyCs2Cfg(FileInfo cs2cfg)
         {
+            FindCs2CfgLinesIndex(cs2cfg);
             string[] fileLines = File.ReadAllLines(cs2cfg.FullName);
 
             fileLines[WIDTH_LINE] = $"\t\"setting.defaultres\"\t\t\"{CfgWidth.Text}\"";
@@ -328,8 +390,12 @@ namespace cs2resfix
         {
             if (isUniversalCfgenabled)
             {
-                csgoLocationButton.IsEnabled = false;
+                CsgoLocationButton.IsEnabled = false;
             }
+
+            //open autoexec.cfg
+            FillUiWithAutoexecData(isUniversalCfgenabled);
+
             interpRatio.IsEnabled = true;
             updateRate.IsEnabled = true;
             allowInterp.IsEnabled = true;
@@ -338,6 +404,49 @@ namespace cs2resfix
             OpenAutoexecDirectoryButton.IsEnabled = true;
             
         }
+
+        private void FillUiWithAutoexecData(bool isUniversalCfgenabled = false)
+        {
+            FileInfo autoexecInfo;
+            if (isUniversalCfgenabled)
+            {
+                autoexecInfo = new FileInfo(csgoDirectory.FullName + "/autoexec.cfg");
+            }
+            else
+            {
+                autoexecInfo = new FileInfo(universalCfgPath + "/cfg/autoexec.cfg");
+            }
+            //set autoexec values to apps ui
+            string[] fileLines = File.ReadAllLines(autoexecInfo.FullName);
+            for (int i = 0; i < fileLines.Length; i++)
+            {
+                if (fileLines[i].Contains("cl_interp_ratio"))
+                {
+                    interpRatio.IsChecked = true;
+                }
+                if (fileLines[i].Contains("cl_updaterate"))
+                {
+                    updateRate.IsChecked = true;
+                }
+                if (fileLines[i].Contains("cl_interp "))
+                {
+                    allowInterp.IsChecked = true;
+                    if (fileLines[i].Contains("0.015625"))
+                    {
+                        interp.SelectedIndex = 0;
+                    }
+                    else if (fileLines[i].Contains("0.046875"))
+                    {
+                        interp.SelectedIndex = 1;
+                    }
+                    else
+                    {
+                        interp.SelectedIndex = 2;
+                    }
+                }
+            }
+        }
+
         private void ModifyAutoexec_Click(object sender, RoutedEventArgs e)
         {
             ModifyAutoexecData();
@@ -411,6 +520,10 @@ namespace cs2resfix
             string[] fileLines = File.ReadAllLines(autoexecInfo.FullName);
             for(int i=0;i<fileLines.Length;i++)
             {
+                if (fileLines[i].Contains("//THIS PART HAS BEEN ADDED BY cs2resfix - github.com/komeg1/cs2resfix"))
+                    fileLines[i] = "";
+                if (fileLines[i].Contains("//END OF cs2resfix PART"))
+                    fileLines[i] = "";
                 if (fileLines[i].Contains("cl_interp "))
                     fileLines[i] = "";
                 if (fileLines[i].Contains("cl_interp_ratio"))
